@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kev7862.github.weatherapp">
 
-    //setting up my internent permissions since our App is going to need internet access
+    //setting up my internent permissions since our App is going to need internet access.
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
