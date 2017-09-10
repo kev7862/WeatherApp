@@ -4,8 +4,12 @@
     <string name="cityText">Daily Forcast</string>
     <string name="tempText">12 Temp</string>
     <string name="windText">Wind</string>
+    <string name="thumbnailIcon">icon</string>
+    <string name="cloudText">Cloud</string>
     <string name="pressureText">Pressure</string>
     <string name="humidityText">Humidity</string>
     <string name="riseText">Sunrise</string>
     <string name="setText">Sunset</string>
+    <string name="updateText">Last Updated</string>
+
 </resources>
