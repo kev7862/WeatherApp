@@ -22,22 +22,80 @@
         android:layout_height="100dp"
         android:layout_below="@+id/cityText"
         android:layout_marginTop="10dp"
-        android:background="white" />
+        android:background="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/tempText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12 Dec"
-        android:textSize="19dp"
+        android:text="12 Temp"
+        android:textSize="42sp"
         android:textStyle="normal"
         android:layout_below="@+id/cityText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="25dp" />
 
+    <TextView
+        android:id="@+id/windText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/thumbnailIcon"
+        android:text="Wind"
+        android:textSize="20sp"
+        android:layout_marginTop="35dp" />
 
+    <TextView
+        android:id="@+id/cloudText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/windText"
+        android:layout_marginTop="5dp"
+        android:text="Cloud"
+        android:textSize="20sp"
 
+    <TextView
+        android:id="@+id/pressureText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cloudText"
+        android:layout_marginTop="5dp"
+        android:text="Pressure"
+        android:textSize="20sp" />
 
-        />
+    <TextView
+        android:id="@+id/humidityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/pressureText"
+        android:text="Humidity"
+        android:textSize="20sp"
 
+    <TextView
+        android:id="@+id/riseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/humidityText"
+        android:text="Sunrise"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/setText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/riseText"
+        android:text="Sunset"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/updateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setText"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:text="Last Updated"
+        android:textSize="26sp" />
 </RelativeLayout>
