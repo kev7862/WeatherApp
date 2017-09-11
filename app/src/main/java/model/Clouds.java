@@ -6,7 +6,6 @@ package model;
 
 public class Clouds {
     private int precipitation;
-
     public int getPrecipitation() {
         return precipitation;
     }
