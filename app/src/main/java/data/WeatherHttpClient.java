@@ -1,6 +1,9 @@
 package data;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -24,7 +27,27 @@ public class WeatherHttpClient {
             connection.setDoInput(true);
             connection.setDoInput(true);
             connection.connect();
+
+            // Reading the Response that we are getting from the URL.
+            // We're Creating a bucket where we'll put all our data that we're getting from the Internet.
+            //BufferedReader is the only Object that can read this input string we're getting from the internet.
+            StringBuffer stringBuffer = new StringBuffer();
+            InputStream = connection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = null;
+            while ((line = bufferedReader.readLine()) !=null) {
+                stringBuffer.append(line + "\r\n");
+
+                        inputStream.close();
+                connection.disconnect();
+                return stringBuffer.toString();
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        return null;
     }
 
 }
