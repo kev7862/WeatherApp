@@ -32,9 +32,11 @@ public class WeatherHttpClient {
             // We're Creating a bucket where we'll put all our data that we're getting from the Internet.
             //BufferedReader is the only Object that can read this input string we're getting from the internet.
             StringBuffer stringBuffer = new StringBuffer();
-            InputStream = connection.getInputStream();
+            inputStream = connection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = null;
+
+            // BufferReader is trying to read each data line by line.
             while ((line = bufferedReader.readLine()) !=null) {
                 stringBuffer.append(line + "\r\n");
 
