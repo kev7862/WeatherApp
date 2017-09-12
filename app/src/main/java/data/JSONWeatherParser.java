@@ -3,6 +3,8 @@ package data;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 import Util.Utils;
 import model.Place;
 import model.Weather;
@@ -27,6 +29,16 @@ public class JSONWeatherParser {
             JSONObject coordObj = Utils.getObject("coord", jsonObject);
             place.setLat(Utils.getFloat("lat", coordObj));
             place.setLon(Utils.getFloat("lon", coordObj));
+
+            // get the sys object
+            JSONObject sysObj = Utils.getObject("sys", jsonObject);
+            place.setCountry(Utils.getString("country", sysObj));
+            place.setLastupdate(Utils.getInt("dt", jsonObject));
+            place.setSunrise(Utils.getInt("sunrise", sysObj));
+            place.setSunset(Utils.getInt("sunset", sysObj));
+            place.setCity(Utils.getString("name", sysObj));
+
+            weather.place = place;
 
         } catch (JSONException e) {
             e.printStackTrace();
