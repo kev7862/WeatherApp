@@ -3,6 +3,8 @@ package data;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Util.Utils;
+import model.Place;
 import model.Weather;
 
 /**
@@ -11,10 +13,21 @@ import model.Weather;
 
 public class JSONWeatherParser {
     public static Weather getWeather(String data) {
+        // Instatiating the Weather Class.
+        Weather weather = new Weather();
 
         // We're Creating a JsonObject from data.
+        // Here our JSON object has all our data from the Web
         try {
             JSONObject jsonObject = new JSONObject(data);
+
+        // Creating a Place object where we can put our data
+            Place place = new Place();
+            //Creating a JsonObject called "coorObj" which holds our coordinates data,
+            JSONObject coordObj = Utils.getObject("coord", jsonObject);
+            place.setLat(Utils.getFloat("lat", coordObj));
+            place.setLon(Utils.getFloat("lon", coordObj));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
