@@ -47,12 +47,25 @@ public class JSONWeatherParser {
             weather.currentCondition.setWeatherId(Utils.getInt("id", jsonWeather));
             weather.currentCondition.setDescription(Utils.getString("description", jsonWeather));
             weather.currentCondition.setIcon(Utils.getString("icon", jsonWeather));
+
+            //get the wind info.
+            JSONObject windObj = Utils.getObject("wind", jsonObject);
+            weather.wind.setSpeed(Utils.getFloat("speed", windObj));
+            weather.wind.setDeg(Utils.getFloat("deg", windObj));
+
+            JSONObject cloudObj = Utils.getObject("clouds", jsonObject);
+            weather.clouds.setPrecipitation(Utils.getInt("all", cloudObj));
+
+            return weather;
+
             
 
 
 
         } catch (JSONException e) {
             e.printStackTrace();
+
+            return null;
         }
     }
 }
