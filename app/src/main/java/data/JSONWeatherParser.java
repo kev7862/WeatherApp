@@ -1,5 +1,6 @@
 package data;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,9 +37,19 @@ public class JSONWeatherParser {
             place.setLastupdate(Utils.getInt("dt", jsonObject));
             place.setSunrise(Utils.getInt("sunrise", sysObj));
             place.setSunset(Utils.getInt("sunset", sysObj));
-            place.setCity(Utils.getString("name", sysObj));
+            place.setCity(Utils.getString("name", jsonObject));
 
             weather.place = place;
+
+            //get the weather info.
+            JSONArray jsonArray = jsonObject.getJSONArray("weather");
+            JSONObject jsonWeather = jsonArray.getJSONObject(0);
+            weather.currentCondition.setWeatherId(Utils.getInt("id", jsonWeather));
+            weather.currentCondition.setDescription(Utils.getString("description", jsonWeather));
+            weather.currentCondition.setIcon(Utils.getString("icon", jsonWeather));
+            
+
+
 
         } catch (JSONException e) {
             e.printStackTrace();
