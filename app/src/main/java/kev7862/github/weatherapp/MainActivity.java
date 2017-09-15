@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView wind;
     private TextView sunrise;
     private TextView sunset;
-    private TextView update;
+    private TextView updated;
 
 
     @Override
@@ -29,7 +29,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        // Fetching the views by id from the activity_main.xml
+        cityName = (TextView) findViewById(R.id.cityText);
+        iconView = (ImageView) findViewById(R.id.thumbnailIcon);
+        temp = (TextView) findViewById(R.id.tempText);
+        description = (TextView) findViewById(R.id.cloudText);
+        humidity = (TextView) findViewById(R.id.humidityText);
+        pressure = (TextView) findViewById(R.id.pressureText);
+        wind = (TextView) findViewById(R.id.windText);
+        sunrise = (TextView) findViewById(R.id.riseText);
+        sunset = (TextView) findViewById(R.id.setText);
+        updated = (TextView) findViewById(R.id.updateText);
     }
 
   @Override
