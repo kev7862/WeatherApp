@@ -6,13 +6,30 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    // Created instant variables from our api to be displayed in the UI
+    private TextView cityName;
+    private TextView temp;
+    private ImageView iconView;
+    private TextView description;
+    private TextView humidity;
+    private TextView pressure;
+    private TextView wind;
+    private TextView sunrise;
+    private TextView sunset;
+    private TextView update;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
 
   @Override
