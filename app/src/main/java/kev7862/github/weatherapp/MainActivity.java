@@ -1,13 +1,19 @@
 package kev7862.github.weatherapp;
 
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import data.JSONWeatherParser;
+import data.WeatherHttpClient;
+import model.Weather;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView sunrise;
     private TextView sunset;
     private TextView updated;
+
+    Weather weather = new Weather();
 
 
     @Override
@@ -40,6 +48,32 @@ public class MainActivity extends AppCompatActivity {
         sunrise = (TextView) findViewById(R.id.riseText);
         sunset = (TextView) findViewById(R.id.setText);
         updated = (TextView) findViewById(R.id.updateText);
+
+        renderWeatherData("Spokane,US");
+    }
+
+    //Created a method that is going to fetch all our info from the web.
+    public void renderWeatherData ( String city) {
+        WeatherTask weatherTask = new WeatherTask();
+        weatherTask.execute(new String[] {city + "&units=metric"});
+
+    }
+    // Were creating a new class that is going to store all our information that's going to be running on the background,
+    // allowing our UI run faster
+    private class WeatherTask extends AsyncTask<String, Void, Weather> {
+        @Override
+        // this is where we populate the data that will then be shown to the user.
+        protected void onPostExecute(Weather weather) {
+            super.onPostExecute(weather);
+        }
+        @Override
+        protected Weather doInBackground(String... params) {
+            String data = ( (new WeatherHttpClient()).getWeatherData(params[0]));
+           weather = JSONWeatherParser.getWeather(data);
+           Log.v("Data: ", weather.currentCondition.getDescription());
+
+            return weather;
+        }
     }
 
   @Override

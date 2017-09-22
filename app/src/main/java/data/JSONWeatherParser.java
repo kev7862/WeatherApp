@@ -26,7 +26,7 @@ public class JSONWeatherParser {
 
         // Creating a Place object where we can put our data
             Place place = new Place();
-            //Creating a JsonObject called "coorObj" which holds our coordinates data,
+            //Creating a JsonObject called "coordObj" which holds our coordinates data,
             JSONObject coordObj = Utils.getObject("coord", jsonObject);
             place.setLat(Utils.getFloat("lat", coordObj));
             place.setLon(Utils.getFloat("lon", coordObj));
@@ -46,6 +46,7 @@ public class JSONWeatherParser {
             JSONObject jsonWeather = jsonArray.getJSONObject(0);
             weather.currentCondition.setWeatherId(Utils.getInt("id", jsonWeather));
             weather.currentCondition.setDescription(Utils.getString("description", jsonWeather));
+            weather.currentCondition.setCondition(Utils.getString("main", jsonWeather));
             weather.currentCondition.setIcon(Utils.getString("icon", jsonWeather));
 
             //get the wind info.
